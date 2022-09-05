@@ -8,12 +8,13 @@ const style = {
 
 export const ChildArea = memo((props) => {
   console.log('ChildArea');
-  const { open } = props;
+  const { open, onClickClose } = props;
   return(
     <>
       { open ? (
         <p style={style}>子コンポーネント</p>
       ) : null }
+      <button onClick={onClickClose}>閉じる</button>
     </>
   )
 });
