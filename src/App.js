@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import './App.css';
 import { ChildArea } from './ChildArea';
 
@@ -14,6 +14,8 @@ function App() {
   const onClickClose = useCallback(() => {
     setOpen(false);
   }, [setOpen]);
+
+  const temp = useMemo(() => console.log('useMemoです。'), []);
 
   return (
     <div className="App"> 
