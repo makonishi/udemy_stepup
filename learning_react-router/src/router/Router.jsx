@@ -1,7 +1,7 @@
 import { Switch, Route } from 'react-router-dom';
 import { Home } from '../Home';
-import { Page2 } from '../Page2';
 import { page1Route } from './Page1Route';
+import { page2Route } from './Page2Route';
 
 export const Router = () => {
   return (
@@ -12,6 +12,7 @@ export const Router = () => {
           {/* => {}ではなく=> ()を使うと, returnを省略できる. */}
           {page1Route.map((route) => (
             <Route
+              key={route.path}
               exact={route.exact}
               path={`${url}${route.path}`}>
                 {route.children}
@@ -19,7 +20,18 @@ export const Router = () => {
           ))}
         </Switch>
       )} />
-      <Route path="/page2"><Page2 /></Route>
+      <Route path="/page2" render={({match: { url }}) => (
+        <Switch>
+          {page2Route.map((route) => (
+            <Route
+              key={route.path}
+              exact={route.exact}
+              path={`${url}${route.path}`}>
+                {route.children}
+            </Route>
+          ))}
+        </Switch>
+      )} />
     </Switch>
   )
 }
