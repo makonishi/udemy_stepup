@@ -12,7 +12,6 @@ export const Router = () => {
           {/* => {}ではなく=> ()を使うと, returnを省略できる. */}
           {page1Route.map((route) => (
             <Route
-              key={route.path}
               exact={route.exact}
               path={`${url}${route.path}`}>
                 {route.children}
