@@ -1,5 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 import { Home } from '../Home';
+import { Page404 } from '../Page404';
 import { page1Route } from './Page1Route';
 import { page2Route } from './Page2Route';
 
@@ -32,6 +33,7 @@ export const Router = () => {
           ))}
         </Switch>
       )} />
+      <Route path="*"><Page404 /></Route>
     </Switch>
   )
 }
