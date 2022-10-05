@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
+import { Card } from "./components/Card";
 
-function App() {
+export const App = () => {
+  // 管理者フラグ
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  // [切り替え]押下時
+  const onClickSwitch = () => setIsAdmin(!isAdmin);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div>
+      {/* 管理者フラグがtrueの時とそれ以外で文字を出し分け */}
+      {isAdmin ? <span>管理者です</span> : <span>管理者以外です</span>}
 
-export default App;
+      <button onClick={onClickSwitch}>切り替え</button>
+      <Card isAdmin={isAdmin} />
+    </div>
+  )
+}
