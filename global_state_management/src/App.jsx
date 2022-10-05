@@ -1,11 +1,11 @@
-import { useState } from "react"
+import { useContext } from "react"
 import { Card } from "./components/Card";
+import { AdminFlagContext } from "./providers/AdminFlagProvider";
 
 export const App = () => {
-  // 管理者フラグ
-  const [isAdmin, setIsAdmin] = useState(false);
-
   // [切り替え]押下時
+  const { isAdmin, setIsAdmin } = useContext(AdminFlagContext);
+
   const onClickSwitch = () => setIsAdmin(!isAdmin);
 
   return (

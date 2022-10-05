@@ -8,11 +8,9 @@ const style = {
 }
 
 export const EditButton = props => {
-  const { isAdmin } = props;
 
   // グローバルのstateを参照したい特定のコンポーネントに対して、useContextの引数に作成したcontextを渡す
-  const contextValue = useContext(AdminFlagContext);
-  console.log(contextValue);
+  const { isAdmin } = useContext(AdminFlagContext);
   
   // isAdminがfalse(管理者でない)時にボタンを非活性にする
   return (
