@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { App } from './App';
 import reportWebVitals from './reportWebVitals';
 
 // アプリ全体で参照できるようにするためにAppコンポーネントを囲む
